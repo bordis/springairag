@@ -1,0 +1,28 @@
+server:
+  servlet:
+    context-path: /spring
+  port : 8080
+
+# configuracao para nao usar um banco de dados, apenas um arquivo json
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.ai.autoconfigure.vectorstore.pgvector.PgVectorStoreAutoConfiguration
+
+  ai:
+    ollama:
+      chat:
+        options:
+          model: ${SPRING_AI_OLLAMA_CHAT_OPTIONS_MODEL}
+          temperature: ${SPRING_AI_OLLAMA_TEMPERATURE}
+          num-predict: -2
+          num-ctx: ${SPRING_AI_OLLAMA_CONTEXT_SIZE}
+      base-url: ${SPRING_AI_OLLAMA_BASE_URL}  
+
+sfg:
+  aiapp:
+    vectorStorePath: C:/TEMP/vectorStore.json
+    documentsToLoad:
+      - classpath:/Top_Movies.csv
+      # - classpath:/NVIDIA-L40S-Product-Brief.pdf
