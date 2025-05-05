@@ -54,7 +54,7 @@ public class OllamaAIService {
 
         SearchRequest searchRequest = SearchRequest.query(userMessageText).withTopK(3);
 
-        List<Document> documents = vectorStore.similaritySearch(searchRequest); // Get top 3 documents
+        List<Document> documents = vectorStore.similaritySearch(searchRequest);
 
         List<String> contentList = documents.stream().map(Document::getContent).toList();
 

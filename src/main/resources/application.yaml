@@ -18,11 +18,12 @@ spring:
           temperature: ${SPRING_AI_OLLAMA_TEMPERATURE}
           num-predict: -2
           num-ctx: ${SPRING_AI_OLLAMA_CONTEXT_SIZE}
-      base-url: ${SPRING_AI_OLLAMA_BASE_URL}  
+      base-url: ${SPRING_AI_OLLAMA_BASE_URL}
+      init:
+        pull-model-strategy: always
 
 sfg:
   aiapp:
     vectorStorePath: C:/TEMP/vectorStore.json
     documentsToLoad:
       - classpath:/Top_Movies.csv
-      # - classpath:/NVIDIA-L40S-Product-Brief.pdf
